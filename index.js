@@ -62,6 +62,7 @@ app.use((error, req, res, next) => {
         message: error.message,
       },
     });
+    next();
 });
 
 app.get('/api', (req, res) => {
