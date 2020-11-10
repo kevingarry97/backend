@@ -1,0 +1,5 @@
+{
+    "msgToken": "msgToken",
+    "db": "acyira_db",
+    "jwtPrivatekey": "acyira_jwtPrivatekey"
+}

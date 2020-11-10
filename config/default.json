@@ -1,0 +1,5 @@
+{
+    "msgToken": "49i76HwF0gjuu7kExEIHctNw9",
+    "db": "mongodb+srv://admin:Abcd123@@cluster0.4t9kt.mongodb.net/Cluster0?retryWrites=true&w=majority",
+    "jwtPrivatekey": ""
+}
