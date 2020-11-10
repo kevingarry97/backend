@@ -8,6 +8,9 @@ const MongoStore = require('connect-mongo')(session);
 const helmet = require('helmet');
 const compression = require('compression');
 
+//Routes
+const category = require('./routes/categories')
+
 const app = express();
 
 if (!config.get('jwtPrivatekey')) {
@@ -49,6 +52,7 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("api/category", category);
 app.get('/api', (req, res) => {
     res.send("Hello world");
 })
