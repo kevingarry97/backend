@@ -8,10 +8,10 @@ const categorySchema = new mongoose.Schema({
   image: {
     type: String,
     required: true,
-  },
+  }
 });
 
-const Category = mongoose.model("Category", categorySchema);
+const Category = mongoose.model("Categories", categorySchema);
 
 exports.Category = Category;
 exports.categorySchema = categorySchema;

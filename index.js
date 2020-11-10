@@ -9,7 +9,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 
 //Routes
-const category = require('./routes/categories')
+const categoryRoutes = require("./routes/categories");
 
 const app = express();
 
@@ -37,7 +37,6 @@ app.use(parser.json())
 app.use(parser.urlencoded({ extended: false }))
 app.use(helmet())
 app.use(compression())
-
 app.use(
     session({
         secret: 'mySecureKey',
@@ -52,10 +51,10 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use("api/category", category);
-app.get('/api', (req, res) => {
-    res.send("Hello world");
-})
+app.use('/api/category', categoryRoutes);
+// app.get('/api', (req, res) => {
+//     res.send("Hello world");
+// })
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`App listening on port ${port}`));
