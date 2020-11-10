@@ -10,6 +10,11 @@ const compression = require('compression');
 
 //Routes
 const categoryRoutes = require("./routes/categories");
+const contactRoutes = require("./routes/contacts");
+const cartRoutes = require("./routes/carts");
+const productRoutes = require("./routes/products");
+const imageRoutes = require("./routes/images");
+const userRoutes = require("./routes/users");
 
 const app = express();
 
@@ -52,9 +57,11 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/category', categoryRoutes);
-// app.get('/api', (req, res) => {
-//     res.send("Hello world");
-// })
+app.use('/api/contact', contactRoutes);
+app.use('/api', cartRoutes);
+app.use('/api/product', productRoutes);
+app.use('/api', imageRoutes);
+app.use('/api/user', userRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`App listening on port ${port}`));
