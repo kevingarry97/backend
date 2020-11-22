@@ -42,13 +42,14 @@ app.use(parser.json())
 app.use(parser.urlencoded({ extended: false }))
 app.use(helmet())
 app.use(compression())
+app.set('trust proxy', 1)
 app.use(
     session({
         secret: 'mySecureKey',
         resave: false,
-        saveUninitialized: false,
+        saveUninitialized: true,
         store: new MongoStore({ mongooseConnection: mongoose.connection, ttl: 14 * 24 * 60 * 60 }),
-        cookie: { maxAge: 180 * 60 * 1000 }
+        cookie: { secure: true, maxAge: 180 * 60 * 1000 }
     })
 )
 app.use((req, res, next) => {
