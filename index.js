@@ -48,7 +48,7 @@ app.use(
         resave: false,
         saveUninitialized: false,
         store: new MongoStore({ mongooseConnection: mongoose.connection, ttl: 14 * 24 * 60 * 60 }),
-        cookie: { maxAge: 180 * 60 * 1000 }
+        cookie: { maxAge: 180 * 60 * 1000, sameSite:'none', secure: true }
     })
 )
 app.use((req, res, next) => {
